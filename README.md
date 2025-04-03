@@ -22,7 +22,8 @@ Describe your implementation. Put a descriptive top-level schematic of your appl
 
 ## Software description
 
-Put flowchats/state diagrams of your algorithm(s) and direct links to source/testbench files in `src` and `sim` folders.
+### Our completed project should do the following:
+
 
 ### Component(s) simulations
 
