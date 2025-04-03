@@ -50,7 +50,7 @@
 
 ### CLK100MHZ Setup
 
-- Can be configured to 1 million periods.
+- Would be configured to 1 million periods.
 - **Stopwatch:**  
   - Functions on 0.01-second periods.
 - **Digiclock and Alarm:**  
@@ -73,7 +73,7 @@
 ### Display Details
 
 - **DP Variable:**  
-  - Used as a decimal point, always displayed when the stopwatch is shown.
+  - Used as a decimal point.
 - **Stopwatch Display:**  
   - Uses all 8 7-segment displays.
   - Decimal point is at AN[4] (fifth segment).
@@ -81,11 +81,12 @@
   - Use a decimal point on AN[2] (third segment).
   - Use only the first 4 AN segments.
 
-### Buzzer Behavior
+### Buzzer (Red LED) Behavior
 
 - Activates when the alarm countdown reaches `0`.
 - Turns the variable `LED17_R` to `1`.
 - Remains active until the alarm value changes from `0`.
+- Possibly could blink?
 
 
 ## Software description
