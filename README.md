@@ -16,8 +16,6 @@
 
 [Optional: Link to your short video presentation.]
 
-## Hardware description of demo application
-
 ## System Functionality Overview
 
 ### SW[0] and SW[1] Control
