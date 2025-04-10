@@ -17,3 +17,21 @@ entity display_mux is
         buzzer   : out std_logic
     );
 end entity display_mux;
+
+architecture behavioral of display_mux is
+    component clock_enable is
+        generic (N_PERIODS : integer);
+        port (
+            clk   : in  std_logic;
+            rst   : in  std_logic;
+            pulse : out std_logic
+        );
+    end component;
+
+    component bin2seg is
+        port (
+            clear : in  std_logic;
+            bin   : in  std_logic_vector(3 downto 0);
+            seg   : out std_logic_vector(6 downto 0)
+        );
+    end component;
