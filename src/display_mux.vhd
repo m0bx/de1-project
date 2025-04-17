@@ -35,3 +35,22 @@ architecture behavioral of display_mux is
             seg   : out std_logic_vector(6 downto 0)
         );
     end component;
+    
+    -- time signals
+    signal clock_sec, clock_min     : integer range 0 to 59 := 0;
+    signal alarm_sec, alarm_min     : integer range 0 to 59 := 0;
+    signal stopwatch_ms             : integer range 0 to 9999 := 0;
+    
+    -- Control signals
+    signal run_clock     : std_logic := '1';
+    signal run_alarm     : std_logic := '1';
+    signal run_stopwatch : std_logic := '1';
+    
+    -- Display signals
+    signal digit_select   : integer range 0 to 7 := 0;
+    signal seg_data      : std_logic_vector(6 downto 0);
+    signal dp_enable     : std_logic;
+    
+    -- Clock enables
+    signal en_1hz    : std_logic;
+    signal en_10khz  : std_logic;
