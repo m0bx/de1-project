@@ -54,3 +54,14 @@ architecture behavioral of display_mux is
     -- Clock enables
     signal en_1hz    : std_logic;
     signal en_10khz  : std_logic;
+
+begin
+
+    -- Clock enable generation
+    clk_en_1hz: clock_enable
+        generic map (N_PERIODS => 100_000_000)
+        port map (clk => clk, rst => rst, pulse => en_1hz);
+
+    clk_en_10khz: clock_enable
+        generic map (N_PERIODS => 10_000)
+        port map (clk => clk, rst => rst, pulse => en_10khz);
