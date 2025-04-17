@@ -91,6 +91,12 @@ This project is a multifunction digital timekeeping device that integrates clock
 
 ## Software description
 
+## Current bugs:
+All anodes are mirrored - 0 should be on 7, 1 should be on 6 and so on. 
+On all modes 4 of the anodes show FFFF
+Clock should not count when being set up (SW[2] = '1')
+
+set up button debounce time
 
 ### Component(s) simulations
 
