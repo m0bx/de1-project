@@ -219,7 +219,7 @@ begin
                                 dp_enable <= '1';
                             when 2 => current_digit <= std_logic_vector(to_unsigned(clock_sec/10, 4));
                             when 3 => current_digit <= std_logic_vector(to_unsigned(clock_sec mod 10, 4));
-                            when others => current_digit <= (others => '0');
+                            when others => current_digit <= (others => '1');
                         end case;
 
                     when "01" => -- Alarm
@@ -230,25 +230,27 @@ begin
                             when 2 => 
                                 current_digit <= std_logic_vector(to_unsigned(alarm_sec/10, 4));
                             when 3 => current_digit <= std_logic_vector(to_unsigned(alarm_sec mod 10, 4));
-                            when others => current_digit <= (others => '0');
+                            when others => current_digit <= (others => '1');
                         end case;
 
                     when "10" => -- Stopwatch
                         case digit_select is
+                        -- seconds
                             when 0 => current_digit <= std_logic_vector(to_unsigned((stopwatch_ms/1000)/1000, 4));
                             when 1 => current_digit <= std_logic_vector(to_unsigned(((stopwatch_ms/1000)/100) mod 10, 4));
                             when 2 => current_digit <= std_logic_vector(to_unsigned(((stopwatch_ms/1000)/10) mod 10, 4));
                             when 3 => current_digit <= std_logic_vector(to_unsigned((stopwatch_ms/1000) mod 10, 4));
                                 dp_enable <= '1';
+                        -- milliseconds
                             when 4 => current_digit <= std_logic_vector(to_unsigned(stopwatch_ms/1000, 4));
                             when 5 => current_digit <= std_logic_vector(to_unsigned((stopwatch_ms/100) mod 10, 4));
                             when 6 => current_digit <= std_logic_vector(to_unsigned((stopwatch_ms/10) mod 10, 4));
                             when 7 => current_digit <= std_logic_vector(to_unsigned(stopwatch_ms mod 10, 4));
-                            when others => current_digit <= (others => '0');
+                            when others => current_digit <= (others => '1');
                             
                         end case;
 
-                    when others => current_digit <= (others => '0');
+                    when others => current_digit <= (others => '1');
                 end case;
 
                 -- Output decimal point
