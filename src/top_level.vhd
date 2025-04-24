@@ -24,6 +24,7 @@ entity top_level is
 end entity top_level;
 
 architecture behavioral of top_level is
+
     component display_mux is
         port (
             clk      : in  std_logic;
@@ -41,6 +42,7 @@ architecture behavioral of top_level is
     end component;
 
     signal sig_segments : std_logic_vector(6 downto 0);
+    signal sig_anodes   : std_logic_vector(7 downto 0);
     signal btnc_sync    : std_logic := '0';
     signal btnd_sync    : std_logic := '0';
     signal btnl_sync    : std_logic := '0';
@@ -48,10 +50,10 @@ architecture behavioral of top_level is
 
 begin
 
+    -- synchronize buttons to CLK
     sync_buttons: process(CLK)
     begin
         if rising_edge(CLK) then
-            -- gets button data synchrinically to clock
             btnc_sync <= BTNC;
             btnd_sync <= BTND;
             btnl_sync <= BTNL;
@@ -59,7 +61,7 @@ begin
         end if;
     end process;
 
-    -- display component
+    -- display mux instance drives sig_segments & sig_anodes
     u_display_mux: display_mux
         port map (
             clk      => CLK,
@@ -71,11 +73,11 @@ begin
             btnr     => btnr_sync,
             segments => sig_segments,
             dp       => DP,
-            anodes   => AN,
+            anodes   => sig_anodes,
             buzzer   => LED17_R
         );
 
-    -- segment signal routing from mux
+    -- direct segment outputs
     CA <= sig_segments(6);
     CB <= sig_segments(5);
     CC <= sig_segments(4);
@@ -83,5 +85,15 @@ begin
     CE <= sig_segments(2);
     CF <= sig_segments(1);
     CG <= sig_segments(0);
+
+    -- reversed the anode vector
+    AN(7) <= sig_anodes(0);
+    AN(6) <= sig_anodes(1);
+    AN(5) <= sig_anodes(2);
+    AN(4) <= sig_anodes(3);
+    AN(3) <= sig_anodes(4);
+    AN(2) <= sig_anodes(5);
+    AN(1) <= sig_anodes(6);
+    AN(0) <= sig_anodes(7);
 
 end architecture behavioral;
