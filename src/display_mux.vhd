@@ -219,7 +219,7 @@ begin
                                 dp_enable <= '1';
                             when 2 => current_digit <= std_logic_vector(to_unsigned(clock_sec/10, 4));
                             when 3 => current_digit <= std_logic_vector(to_unsigned(clock_sec mod 10, 4));
-                            when others => current_digit <= (others => '1');
+                            when others => current_digit <= (others => '0');
                         end case;
 
                     when "01" => -- Alarm
@@ -248,7 +248,7 @@ begin
                             
                         end case;
 
-                    when others => current_digit <= (others => '1');
+                    when others => current_digit <= (others => '0');
                 end case;
 
                 -- Output decimal point
