@@ -137,6 +137,7 @@ begin
                         end if; 
                         if btnd = '1' and btnd_prev = '0' then
                             stopwatch_ms <= 0;
+                            stopwatch_s <= 0;
                             run_stopwatch <= '0';
                         end if;
 						if btnc = '1' and btnc_prev = '0' then
@@ -246,10 +247,10 @@ begin
                     when "10" => -- Stopwatch
                         case digit_select is
                         -- seconds
-                            when 0 => current_digit <= std_logic_vector(
-                            when 1 => current_digit <= std_logic_vector(
-                            when 2 => current_digit <= std_logic_vector(
-                            when 3 => current_digit <= std_logic_vector(
+                            when 0 => current_digit <= std_logic_vector(to_unsigned(stopwatch_s/1000,4));
+                            when 1 => current_digit <= std_logic_vector(to_unsigned((stopwatch_s/100) mod 10, 4));
+                            when 2 => current_digit <= std_logic_vector(to_unsigned((stopwatch_s/10) mod 10, 4));
+                            when 3 => current_digit <= std_logic_vector(to_unsigned(stopwatch_s mod 10, 4));
                                 dp_enable <= '1';
                         -- milliseconds
                             when 4 => current_digit <= std_logic_vector(to_unsigned(stopwatch_ms/1000, 4));
