@@ -216,9 +216,8 @@ begin
                         case digit_select is
                             when 0 => current_digit <= std_logic_vector(to_unsigned(clock_min/10, 4));
                             when 1 => current_digit <= std_logic_vector(to_unsigned(clock_min mod 10, 4));
-                            when 2 => 
-                                current_digit <= std_logic_vector(to_unsigned(clock_sec/10, 4));
                                 dp_enable <= '1';
+                            when 2 => current_digit <= std_logic_vector(to_unsigned(clock_sec/10, 4));
                             when 3 => current_digit <= std_logic_vector(to_unsigned(clock_sec mod 10, 4));
                             when others => current_digit <= (others => '1');
                         end case;
@@ -227,22 +226,26 @@ begin
                         case digit_select is
                             when 0 => current_digit <= std_logic_vector(to_unsigned(alarm_min/10, 4));
                             when 1 => current_digit <= std_logic_vector(to_unsigned(alarm_min mod 10, 4));
+                                dp_enable <= '1';
                             when 2 => 
                                 current_digit <= std_logic_vector(to_unsigned(alarm_sec/10, 4));
-                                dp_enable <= '1';
                             when 3 => current_digit <= std_logic_vector(to_unsigned(alarm_sec mod 10, 4));
-                            when others => current_digit <= (others => '1');
+                            when others => current_digit <= (others => '0');
                         end case;
 
                     when "10" => -- Stopwatch
                         case digit_select is
-                            when 0 => current_digit <= std_logic_vector(to_unsigned(stopwatch_ms/1000, 4));
-                            when 1 => current_digit <= std_logic_vector(to_unsigned((stopwatch_ms/100) mod 10, 4));
-                            when 2 => current_digit <= std_logic_vector(to_unsigned((stopwatch_ms/10) mod 10, 4));
-                            when 3 => 
-                                current_digit <= std_logic_vector(to_unsigned(stopwatch_ms mod 10, 4));
+                            when 0 => current_digit <= -- seconds*1000    
+                            when 1 => current_digit <= -- seconds*100
+                            when 2 => current_digit <= -- seconds*10
+                            when 3 => current_digit <= -- seconds
                                 dp_enable <= '1';
-                            when others => current_digit <= (others => '1');
+                            when 4 => current_digit <= std_logic_vector(to_unsigned(stopwatch_ms/1000, 4));
+                            when 5 => current_digit <= std_logic_vector(to_unsigned((stopwatch_ms/100) mod 10, 4));
+                            when 6 => current_digit <= std_logic_vector(to_unsigned((stopwatch_ms/10) mod 10, 4));
+                            when 7 => current_digit <= std_logic_vector(to_unsigned(stopwatch_ms mod 10, 4));
+                            when others => current_digit <= (others => '0');
+                            
                         end case;
 
                     when others => current_digit <= (others => '1');
