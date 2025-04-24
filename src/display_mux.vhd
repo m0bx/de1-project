@@ -44,6 +44,8 @@ architecture behavioral of display_mux is
     signal clock_sec, clock_min     : integer range 0 to 59 := 0;
     signal alarm_sec, alarm_min     : integer range 0 to 59 := 0;
     signal stopwatch_ms             : integer range 0 to 9999 := 0;
+    signal stopwatch_s             : integer range 0 to 9999 := 0;
+    
 
     -- Control signals
     signal run_clock     : std_logic := '1';
@@ -83,6 +85,7 @@ begin
                 alarm_sec <= 0;
                 alarm_min <= 0;
                 stopwatch_ms <= 0;
+                stopwatch_s <= 0;
                 run_clock <= '1';
                 run_alarm <= '1';
                 run_stopwatch <= '1';
@@ -125,6 +128,13 @@ begin
                                 stopwatch_ms <= stopwatch_ms + 1;
                             end if;
                         end if;
+                        if en_1hz = '1' and run_stopwatch = '1' then
+                            if stopwatch_s = 9999 then
+                                stopwatch_s <= 0;
+                            else
+                                stopwatch_s <= stopwatch_s + 1;
+                            end if;
+                        end if; 
                         if btnd = '1' and btnd_prev = '0' then
                             stopwatch_ms <= 0;
                             run_stopwatch <= '0';
@@ -236,10 +246,10 @@ begin
                     when "10" => -- Stopwatch
                         case digit_select is
                         -- seconds
-                            when 0 => current_digit <= std_logic_vector(to_unsigned((stopwatch_ms/1000)/1000, 4));
-                            when 1 => current_digit <= std_logic_vector(to_unsigned(((stopwatch_ms/1000)/100) mod 10, 4));
-                            when 2 => current_digit <= std_logic_vector(to_unsigned(((stopwatch_ms/1000)/10) mod 10, 4));
-                            when 3 => current_digit <= std_logic_vector(to_unsigned((stopwatch_ms/1000) mod 10, 4));
+                            when 0 => current_digit <= std_logic_vector(
+                            when 1 => current_digit <= std_logic_vector(
+                            when 2 => current_digit <= std_logic_vector(
+                            when 3 => current_digit <= std_logic_vector(
                                 dp_enable <= '1';
                         -- milliseconds
                             when 4 => current_digit <= std_logic_vector(to_unsigned(stopwatch_ms/1000, 4));
