@@ -235,10 +235,10 @@ begin
 
                     when "10" => -- Stopwatch
                         case digit_select is
-                            when 0 => current_digit <= -- seconds*1000    
-                            when 1 => current_digit <= -- seconds*100
-                            when 2 => current_digit <= -- seconds*10
-                            when 3 => current_digit <= -- seconds
+                            when 0 => current_digit <= std_logic_vector(to_unsigned((stopwatch_ms/1000)/1000, 4));
+                            when 1 => current_digit <= std_logic_vector(to_unsigned(((stopwatch_ms/1000)/100) mod 10, 4));
+                            when 2 => current_digit <= std_logic_vector(to_unsigned(((stopwatch_ms/1000)/10) mod 10, 4));
+                            when 3 => current_digit <= std_logic_vector(to_unsigned((stopwatch_ms/1000) mod 10, 4));
                                 dp_enable <= '1';
                             when 4 => current_digit <= std_logic_vector(to_unsigned(stopwatch_ms/1000, 4));
                             when 5 => current_digit <= std_logic_vector(to_unsigned((stopwatch_ms/100) mod 10, 4));
