@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../digital_clock.srcs/sources_1/new/bin2seg.vhd" \
+"../../../../digital_clock.srcs/sources_1/new/clock_enable.vhd" \
+"../../../../digital_clock.srcs/sources_1/new/display_mux.vhd" \
+"../../../../digital_clock.srcs/sources_1/new/top_level.vhd" \
+
+# Do not sort compile order
+nosort
