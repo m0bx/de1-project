@@ -4,10 +4,7 @@
 * Andrej (Ministerstvo FPGA)
 * Daniel (Ministerstvo ochrany pred slabými prúdmi)
 
-### Abstract
-
-This project is a multifunction digital timekeeping device that integrates clock, alarm, and stopwatch functionalities into a single, relatively friendly interface. The operational mode is determined by a combination of primary switches, SW[0] and SW[1], where each configuration selectively activates a feature: a clock that counts upward, an alarm that counts down, or a stopwatch with precise 0.0001-second intervals. Additionally, secondary switches allow for fine adjustments, enabling users to add or subtract seconds and minutes as needed, thus ensuring that both the clock and alarm can be accurately set. The alarm function is designed to trigger a buzzer and illuminate an LED indicator upon reaching zero, providing immediate feedback to the user, while the stopwatch can be reset at any time to its default state of 0000.0000. The system also incorporates several dedicated buttons that facilitate pausing, resuming, and modifying the counters, ensuring comprehensive control over the displayed time values. Overall, this design combines precision, flexibility, and intuitive user interaction, making it ideal for a wide range of applications that require robust time management capabilities.
-
+### Abstrakt
 
 
 [Photo(s) of your application with labels of individual parts.]
