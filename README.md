@@ -5,7 +5,7 @@
 
 ### Overview
 
-[[Prezentácia vysvetľujúca funkciu projektu.]](https://docs.google.com/presentation/d/1sv5rrbzjL-Dh-JBLwdyhGXc1aSj_G6MQAJoZFdU_K2A/edit?usp=sharing)
+[Prezentácia vysvetľujúca funkciu projektu.](https://docs.google.com/presentation/d/1sv5rrbzjL-Dh-JBLwdyhGXc1aSj_G6MQAJoZFdU_K2A/edit?usp=sharing)
 
 ### Fotky jednotlivých stavov 
 Hodiny
