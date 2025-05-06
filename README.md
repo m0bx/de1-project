@@ -20,5 +20,5 @@
 ## Zdroje
 
 1. [Online testbench Generator by Bertrand Gros.](https://vhdl.lapinoo.net/)
-2. [[Modul bin2seg použitý v zdrojovom kóde]](https://github.com/tomas-fryza/vhdl-labs/tree/master/lab3-segment)
-3. [[Modul clock_enable použitý v zdrojovom kóde]](https://github.com/tomas-fryza/vhdl-labs/tree/master/lab5-counter)
+2. [Modul bin2seg použitý v zdrojovom kóde](https://github.com/tomas-fryza/vhdl-labs/tree/master/lab3-segment)
+3. [Modul clock_enable použitý v zdrojovom kóde](https://github.com/tomas-fryza/vhdl-labs/tree/master/lab5-counter)
