@@ -8,7 +8,7 @@
 [Prezentácia vysvetľujúca funkciu projektu.](https://docs.google.com/presentation/d/1sv5rrbzjL-Dh-JBLwdyhGXc1aSj_G6MQAJoZFdU_K2A/edit?usp=sharing)
 
 ## Fotky jednotlivých stavov 
-### Hodiny
+### Hodiny (ukazujúce minúty a sekundy)
 ![image](https://github.com/user-attachments/assets/038b4227-6a99-4dee-aa89-90a7492eb13b)
 ### Aktivovaný budík
 ![image](https://github.com/user-attachments/assets/ad3510cd-0781-447b-9b1a-71479221e37b)
