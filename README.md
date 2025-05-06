@@ -9,13 +9,13 @@
 
 ### Fotky jednotlivých stavov 
 * Hodiny
-![image](https://github.com/user-attachments/assets/038b4227-6a99-4dee-aa89-90a7492eb13b)
+* ![image](https://github.com/user-attachments/assets/038b4227-6a99-4dee-aa89-90a7492eb13b)
 * Aktivovaný budík
-![image](https://github.com/user-attachments/assets/ad3510cd-0781-447b-9b1a-71479221e37b)
+* ![image](https://github.com/user-attachments/assets/ad3510cd-0781-447b-9b1a-71479221e37b)
 * Budík počítajúc nadol
-![image](https://github.com/user-attachments/assets/25a2997a-cdd2-4128-ab67-2c04ebfcd91a)
+* ![image](https://github.com/user-attachments/assets/25a2997a-cdd2-4128-ab67-2c04ebfcd91a)
 * Stopky
-![image](https://github.com/user-attachments/assets/51ca16be-31fb-483e-9170-c291e90f5955)
+* ![image](https://github.com/user-attachments/assets/51ca16be-31fb-483e-9170-c291e90f5955)
 
 ## Zdroje
 
